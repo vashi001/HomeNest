@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import userRouter from "./routes/userroute.js";
+// since we are using export default we can change the name here as there is only one export hence no error
 dotenv.config();
 mongoose
   .connect(process.env.MONGO)
@@ -15,3 +17,5 @@ const app = express();
 app.listen(3000, () => {
   console.log("server is running on port 3000");
 });
+
+app.use("/api/user", userRouter);
