@@ -18,6 +18,7 @@ export const signup = async (req, res, next) => {
 };
 
 export const signin = async (req, res, next) => {
+  console.log("hello from signin", req);
   const { email, password } = req.body;
   try {
     const validUser = await User.findOne({ email: email });
@@ -30,7 +31,12 @@ export const signin = async (req, res, next) => {
     const { password: pass, ...rest } = validUser._doc;
     //._doc gives the correct exprected response other wise we get too many things from the response
     res
-      .cookie("access_token", token, { httpOnly: true })
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        maxAge: 24 * 60 * 60 * 1000,
+      })
       .status(200)
       .json(rest);
   } catch (error) {
