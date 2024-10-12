@@ -5,6 +5,7 @@ import userRouter from "./routes/userroute.js";
 import cors from "cors";
 // since we are using export default we can change the name here as there is only one export hence no error
 import authRouter from "./routes/authroute.js";
+import listingroute from "./routes/listingroute.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
 mongoose
@@ -26,6 +27,7 @@ app.listen(3000, () => {
 });
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/listing", listingroute);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
