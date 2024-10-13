@@ -8,6 +8,7 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   updateUserStart,
   updateUserFailure,
@@ -185,6 +186,12 @@ export const Profile = () => {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link
+          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+          to={"/create-listing"}
+        >
+          Create Listing
+        </Link>
         <div className="flex justify-between mt-5">
           <span
             className="text-red-700 cursor-pointer font-semibold"
