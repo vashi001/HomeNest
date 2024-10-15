@@ -284,7 +284,7 @@ export default function CreateListing() {
               <div className="flex items-center gap-2">
                 <input
                   type="number"
-                  id="Discounted Price"
+                  id="discountPrice"
                   min="0"
                   max="1000000"
                   required
