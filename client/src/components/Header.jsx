@@ -46,7 +46,7 @@ export const Header = () => {
             </button>
           </form>
           <ul className="flex gap-4">
-            <Link to="/home">
+            <Link to="/">
               <li className="font-bold hidden sm:inline text-slate-700 hover:underline">
                 Home
               </li>
