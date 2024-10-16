@@ -146,7 +146,7 @@ export const Profile = () => {
   const handleListingDelete = async (listingId) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/listing/delete/${currentUser._id}`
+        `http://localhost:3000/api/listing/delete/${listingId}`
       );
       const data = res.json();
       if (data.success == false) {
