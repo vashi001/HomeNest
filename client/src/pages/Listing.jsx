@@ -30,7 +30,9 @@ export default function Listing() {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:3000/api/listing/get/${params.listingId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/listing/get/${
+            params.listingId
+          }`
         );
         const data = await res.json();
         if (data.success === false) {

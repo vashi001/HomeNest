@@ -36,7 +36,7 @@ export default function CreateListing() {
     const fetchListing = async () => {
       const listingId = params.listingId;
       const res = await fetch(
-        `http://localhost:3000/api/listing/get/${listingId}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/listing/get/${listingId}`
       );
       const data = await res.json();
       if (data.success === false) {
@@ -142,7 +142,9 @@ export default function CreateListing() {
       setLoading(true);
       setError(false);
       const res = await fetch(
-        `http://localhost:3000/api/listing/update/${params.listingId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/listing/update/${
+          params.listingId
+        }`,
         {
           method: "POST",
           headers: {

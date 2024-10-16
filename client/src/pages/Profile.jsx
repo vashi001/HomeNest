@@ -73,7 +73,9 @@ export const Profile = () => {
     try {
       dispatch(updateUserStart());
       const res = await fetch(
-        `http://localhost:3000/api/user/update/${currentUser._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/update/${
+          currentUser._id
+        }`,
         {
           method: "POST",
           headers: {
@@ -98,7 +100,9 @@ export const Profile = () => {
     try {
       dispatch(deleteUserStart());
       const res = await fetch(
-        `http://localhost:3000/api/user/delete/${currentUser._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/delete/${
+          currentUser._id
+        }`,
         {
           method: "DELETE",
         }
@@ -116,7 +120,9 @@ export const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch(`http://localhost:3000/api/auth/signout`);
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signout`
+      );
       const data = await res.json();
       if (data.success === false) {
         dispatch(signOutUserFailure(data.message));
@@ -131,7 +137,9 @@ export const Profile = () => {
     try {
       setListingError(false);
       const res = await fetch(
-        `http://localhost:3000/api/user/listings/${currentUser._id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/listings/${
+          currentUser._id
+        }`
       );
       const data = await res.json();
       if (data.success === false) {
@@ -146,7 +154,7 @@ export const Profile = () => {
   const handleListingDelete = async (listingId) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/listing/delete/${listingId}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/listing/delete/${listingId}`
       );
       const data = res.json();
       if (data.success == false) {

@@ -16,7 +16,9 @@ export const Home = () => {
     const fecthOfferListings = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/listing/get?offer=true&limit=4"
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/listing/get?offer=true&limit=4`
         );
         const data = await res.json();
         setOfferListings(data);
@@ -26,7 +28,9 @@ export const Home = () => {
     const fecthRentListings = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/listing/get?type=rent&limit=4"
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/listing/get?type=rent&limit=4`
         );
         const data = await res.json();
         setRentListings(data);
@@ -36,7 +40,9 @@ export const Home = () => {
     const fecthSaleListings = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/listing/get?type=sale&limit=4"
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/listing/get?type=sale&limit=4`
         );
         const data = await res.json();
         setSaleListings(data);
